@@ -39,7 +39,8 @@ set hlsearch
 
 "colorscheme desert
 set t_Co=256
-colorscheme  calmar256-dark
+"colorscheme  calmar256-dark
+colorscheme jellybeans
 
 " show partial command in status line
 set showcmd
