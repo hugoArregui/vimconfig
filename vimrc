@@ -15,6 +15,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'LargeFile'
+Bundle 'matchit.zip'
 
 set wildmenu
 set wildmode=list:longest,full  
@@ -158,7 +159,6 @@ let tagbar_compact=1
 let tagbar_sort=0
 nnoremap <silent> <F4> :TagbarToggle<CR><C-W><C-W>
 
-
 " FuzzyFinder config
 let g:fuf_modesDisable = []
 let g:fuf_mrufile_maxItem = 400
@@ -170,15 +170,34 @@ nmap <silent> <leader>s :set nolist!<CR>
 nmap <leader>F :FufFile<CR>
 nmap <leader>f :FufCoverageFile<CR>
 nmap <leader>b :FufBuffer<CR>
+map <tab> %
 
-"disable keys
-"nnoremap <up> <nop>
-"nnoremap <down> <nop>
-"nnoremap <left> <nop>
-"nnoremap <right> <nop>
+noremap H ^
+noremap L $
+vnoremap L g_
+
+nnoremap j gj
+nnoremap k gk
+
+" Make sure Vim returns to the same line when you reopen a file.
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+set undodir=~/tmp/vim/undo//     " undo files
+set backupdir=~/tmp/vim/backup// " backups
+set directory=~/tmp/vim/swap//   " swap files
+
+"disable keys for training
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
 "inoremap <up> <nop>
 "inoremap <down> <nop>
 "inoremap <left> <nop>
 "inoremap <right> <nop>
-nnoremap j gj
-nnoremap k gk
