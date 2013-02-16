@@ -16,6 +16,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'LargeFile'
 Bundle 'matchit.zip'
+Bundle 'Tabular'
+Bundle 'camelcasemotion'
 
 set wildmenu
 set wildmode=list:longest,full  
@@ -201,3 +203,5 @@ nnoremap <right> <nop>
 "inoremap <down> <nop>
 "inoremap <left> <nop>
 "inoremap <right> <nop>
+nnoremap <PageUp> <nop>
+nnoremap <PageDown> <nop>
