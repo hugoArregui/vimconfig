@@ -18,6 +18,7 @@ Bundle 'LargeFile'
 Bundle 'matchit.zip'
 Bundle 'Tabular'
 Bundle 'camelcasemotion'
+Bundle 'tpope/vim-markdown'
 
 set wildmenu
 set wildmode=list:longest,full  
@@ -54,7 +55,7 @@ set ruler
 set nobackup
 
 " i hate cyan comments :)
-hi Comment ctermfg=DarkGrey guifg=DarkGrey
+"hi Comment ctermfg=DarkGrey guifg=DarkGrey
 
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
@@ -171,7 +172,7 @@ nmap <silent> <leader>h :silent :nohlsearch<CR>
 nmap <silent> <leader>s :set nolist!<CR>
 nmap <leader>F :FufFile<CR>
 nmap <leader>f :FufCoverageFile<CR>
-nmap <leader>b :FufBuffer<CR>
+nmap <leader>v :FufBuffer<CR>
 map <tab> %
 
 noremap H ^
@@ -206,14 +207,19 @@ set undodir=~/tmp/vim/undo//     " undo files
 set backupdir=~/tmp/vim/backup// " backups
 set directory=~/tmp/vim/swap//   " swap files
 
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
 "disable keys for training
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
-"inoremap <up> <nop>
-"inoremap <down> <nop>
-"inoremap <left> <nop>
-"inoremap <right> <nop>
 nnoremap <PageUp> <nop>
 nnoremap <PageDown> <nop>
