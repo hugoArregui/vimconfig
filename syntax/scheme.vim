@@ -262,6 +262,7 @@ if exists("b:is_chicken") || exists("is_chicken")
     syn match schemeOther "##[-a-z!$%&*/:<=>?^_~0-9+.@#%]\+"
     syn match schemeExtSyntax "#:[-a-z!$%&*/:<=>?^_~0-9+.@#%]\+"
 
+    syn keyword schemeSyntax define-for-syntax
     syn keyword schemeExtSyntax unit uses declare hide foreign-declare foreign-parse foreign-parse/spec
     syn keyword schemeExtSyntax foreign-lambda foreign-lambda* define-external define-macro load-library
     syn keyword schemeExtSyntax let-values let*-values letrec-values ->string require-extension
