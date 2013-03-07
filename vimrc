@@ -23,8 +23,8 @@
                 Bundle 'tpope/vim-markdown'
                 Bundle 'myusuf3/numbers.vim'
                 Bundle 'rainbow_parentheses.vim'
-                Bundle 'slimv.vim'
                 "Bundle 'ultisnips'              " handle by pacman, vundle doesn't work for some reason
+
                 set runtimepath+="~/.vim/UltiSnips"
                 let NERDTreeShowBookmarks=1
                 let tagbar_compact=1
@@ -102,7 +102,8 @@
             autocmd FileType c set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType cpp set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType make set noexpandtab
-            autocmd FileType scheme RainbowParenthesesToggle
+            au VimEnter * RainbowParenthesesToggle
+            autocmd FileType scheme RainbowParenthesesLoadRound
       endif
 
       " Set some sensible defaults for editing C-files
