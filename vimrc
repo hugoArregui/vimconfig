@@ -90,7 +90,7 @@
 " Formatting {
       setl lispwords+=let-values,condition-case,with-input-from-string
       setl lispwords+=with-output-to-string,handle-exceptions,call/cc,rec,receive
-      setl lispwords+=call-with-output-file,define-for-syntax
+      setl lispwords+=call-with-output-file,define-for-syntax,define-foreign-record-type
       set autoindent		
       set backspace=2 
       set ts=2
@@ -149,6 +149,10 @@
       " Show syntax highlighting groups for word under cursor
       nmap <C-S-P> :call <SID>SynStack()<CR>
       inoremap jj <Esc>
+
+      nnoremap <F3> :set invpaste paste?<CR>
+      set pastetoggle=<F3>
+      set showmode
 
       " Training {
             nnoremap <up> <nop>
