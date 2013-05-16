@@ -91,6 +91,8 @@
       setl lispwords+=let-values,condition-case,with-input-from-string
       setl lispwords+=with-output-to-string,handle-exceptions,call/cc,rec,receive
       setl lispwords+=call-with-output-file,define-for-syntax,define-foreign-record-type
+      setl lispwords+=define-concurrent-native-callback,define-synchronous-concurrent-native-callback
+      setl lispwords+=define-callback
       set autoindent		
       set backspace=2 
       set ts=2
