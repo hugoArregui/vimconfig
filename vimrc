@@ -23,6 +23,8 @@
                 Bundle 'tpope/vim-markdown'
                 Bundle 'myusuf3/numbers.vim'
                 Bundle 'rainbow_parentheses.vim'
+                Bundle 'jimenezrick/vimerl'
+                Bundle 'tpope/vim-abolish'
                 "Bundle 'ultisnips'              " handle by pacman, vundle doesn't work for some reason
 
                 set runtimepath+="~/.vim/UltiSnips"
@@ -92,7 +94,7 @@
       setl lispwords+=with-output-to-string,handle-exceptions,call/cc,rec,receive
       setl lispwords+=call-with-output-file,define-for-syntax,define-foreign-record-type
       setl lispwords+=define-concurrent-native-callback,define-synchronous-concurrent-native-callback
-      setl lispwords+=define-callback
+      setl lispwords+=define-callback,test-group
       set autoindent		
       set backspace=2 
       set ts=2
@@ -101,6 +103,7 @@
       if has("autocmd")
             au BufRead,BufNewFile SConscript set filetype=python
             autocmd FileType python set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
+            autocmd FileType java set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType c set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType cpp set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType make set noexpandtab
@@ -120,6 +123,9 @@
         autocmd BufRead *       set formatoptions=tcql nocindent comments&
         autocmd BufRead *.c,*.h set formatoptions=croql cindent comments=sr:/*,mb:*,el:*/,://
       augroup END
+
+      "better linewraps
+      set showbreak=↪
 " }
 
 " Bindings {

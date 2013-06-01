@@ -1,0 +1,14 @@
+snippet er "er-macro template"
+(define-syntax $1 
+  (er-macro-transformer
+    (lambda (x r c)
+endsnippet
+
+snippet ren "rename template"
+(%${1:}      (r '$1))
+endsnippet
+
+snippet rule "syntax-rules template"
+(define-syntax $1
+  (syntax-rules ()
+endsnippet
