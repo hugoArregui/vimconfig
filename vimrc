@@ -25,6 +25,7 @@
                 Bundle 'rainbow_parentheses.vim'
                 Bundle 'jimenezrick/vimerl'
                 Bundle 'tpope/vim-abolish'
+                Bundle 'tpope/vim-fugitive'
                 "Bundle 'ultisnips'              " handle by pacman, vundle doesn't work for some reason
 
                 set runtimepath+="~/.vim/UltiSnips"
@@ -87,6 +88,9 @@
       set showmatch                " show matching brackets
       set ruler                    " show ruler (line & column numbers)
       filetype indent plugin on    " Enable filetype-specific plugins
+
+      au BufWinLeave * silent! mkview
+      au BufWinEnter * silent! loadview
 " }
 
 " Formatting {
@@ -109,6 +113,7 @@
             autocmd FileType make set noexpandtab
             au VimEnter * RainbowParenthesesToggle
             autocmd FileType scheme RainbowParenthesesLoadRound
+            autocmd FileType scheme set iskeyword=33,35-36,38,42-58,60-90,94,95,97-122,126,_,+,-,*,/,<,=,>,:,$,?,!,@-@,#,^
       endif
 
       " Set some sensible defaults for editing C-files
