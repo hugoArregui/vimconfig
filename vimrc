@@ -35,6 +35,8 @@
                 let g:fuf_modesDisable = []
                 let g:fuf_mrufile_maxItem = 400
                 let g:fuf_mrucmd_maxItem = 400
+                let g:fuf_file_exclude = '\v\.pyc$|\.class$|\.beam$|\.o$'
+                let g:fuf_coveragefile_exclude = g:fuf_file_exclude
       " }
 " }
 
@@ -91,6 +93,7 @@
 
       au BufWinLeave * silent! mkview
       au BufWinEnter * silent! loadview
+
 " }
 
 " Formatting {
