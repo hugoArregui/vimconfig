@@ -37,6 +37,8 @@
                 let g:fuf_mrucmd_maxItem = 400
                 let g:fuf_file_exclude = '\v\.pyc$|\.class$|\.beam$|\.o$'
                 let g:fuf_coveragefile_exclude = g:fuf_file_exclude
+                let g:UltiSnipsExpandTrigger="<tab>"
+                let erlang_show_errors = 0
       " }
 " }
 
@@ -91,8 +93,8 @@
       set ruler                    " show ruler (line & column numbers)
       filetype indent plugin on    " Enable filetype-specific plugins
 
-      au BufWinLeave * silent! mkview
-      au BufWinEnter * silent! loadview
+      "au BufWinLeave * silent! mkview
+      "au BufWinEnter * silent! loadview
 
 " }
 
@@ -113,8 +115,9 @@
             autocmd FileType java set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType c set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType cpp set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
+            autocmd FileType erlang set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType make set noexpandtab
-            au VimEnter * RainbowParenthesesToggle
+            autocmd VimEnter * RainbowParenthesesToggle
             autocmd FileType scheme RainbowParenthesesLoadRound
             autocmd FileType scheme set iskeyword=33,35-36,38,42-58,60-90,94,95,97-122,126,_,+,-,*,/,<,=,>,:,$,?,!,@-@,#,^
       endif
