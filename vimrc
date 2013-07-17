@@ -103,14 +103,14 @@
       setl lispwords+=with-output-to-string,handle-exceptions,call/cc,rec,receive
       setl lispwords+=call-with-output-file,define-for-syntax,define-foreign-record-type
       setl lispwords+=define-concurrent-native-callback,define-synchronous-concurrent-native-callback
-      setl lispwords+=define-callback,test-group
+      setl lispwords+=define-callback,test-group,define-target,define-page
       set autoindent		
       set backspace=2 
       set ts=2
       set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
 
       if has("autocmd")
-            au BufRead,BufNewFile SConscript set filetype=python
+            autocmd BufRead,BufNewFile SConscript set filetype=python
             autocmd FileType python set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType java set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType c set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
@@ -119,7 +119,7 @@
             autocmd FileType make set noexpandtab
             autocmd VimEnter * RainbowParenthesesToggle
             autocmd FileType scheme RainbowParenthesesLoadRound
-            autocmd FileType scheme set iskeyword=33,35-36,38,42-58,60-90,94,95,97-122,126,_,+,-,*,/,<,=,>,:,$,?,!,@-@,#,^
+            autocmd FileType scheme setl iskeyword=33,35-36,38,42-58,60-90,94,95,97-122,126,_,+,-,*,/,<,=,>,:,$,?,!,@-@,#,^
       endif
 
       " Set some sensible defaults for editing C-files
