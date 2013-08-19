@@ -28,6 +28,7 @@
                 Bundle 'tpope/vim-fugitive'
                 "Bundle 'ultisnips'              " handle by pacman, vundle doesn't work for some reason
 
+                set hidden 
                 set runtimepath+="~/.vim/UltiSnips"
                 let NERDTreeShowBookmarks=1
                 let tagbar_compact=1
@@ -85,8 +86,13 @@
       set cinoptions=>4
       set hlsearch
 
-      set t_Co=256
-      colorscheme jellybeans
+      if has('gui_running')
+        colorscheme github
+        set guioptions=
+      else
+        set t_Co=256
+        colorscheme jellybeans
+      endif
 
       set showcmd                  " show partial command in status line
       set showmatch                " show matching brackets
@@ -95,7 +101,6 @@
 
       "au BufWinLeave * silent! mkview
       "au BufWinEnter * silent! loadview
-
 " }
 
 " Formatting {
@@ -120,6 +125,9 @@
             autocmd VimEnter * RainbowParenthesesToggle
             autocmd FileType scheme RainbowParenthesesLoadRound
             autocmd FileType scheme setl iskeyword=33,35-36,38,42-58,60-90,94,95,97-122,126,_,+,-,*,/,<,=,>,:,$,?,!,@-@,#,^
+            autocmd FileType scheme setl keywordprg=kvim-scheme
+            autocmd FileType mail set omnifunc=mailcomplete#Complete
+            autocmd FileType mail set textwidth=70
       endif
 
       " Set some sensible defaults for editing C-files
@@ -137,6 +145,24 @@
 
       "better linewraps
       set showbreak=↪
+" }
+
+" Spell Check {
+  let b:myLang=0
+  let g:myLangList=["nospell","es","en"]
+  function! ToggleSpell()
+    let b:myLang=b:myLang+1
+    if b:myLang>=len(g:myLangList) | let b:myLang=0 | endif
+    if b:myLang==0
+      setlocal nospell
+    else
+      execute "setlocal spell spelllang=".get(g:myLangList, b:myLang)
+    endif
+    echo "spell checking language:" g:myLangList[b:myLang]
+  endfunction
+
+  nmap <silent> <F7> :call ToggleSpell()<CR>
+  autocmd FileType mail :call ToggleSpell()
 " }
 
 " Bindings {
@@ -183,3 +209,4 @@
             inoremap <Esc> <nop>
       " }
 " }
+
