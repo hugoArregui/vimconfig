@@ -162,7 +162,7 @@
   endfunction
 
   nmap <silent> <F7> :call ToggleSpell()<CR>
-  autocmd FileType mail :call ToggleSpell()
+  autocmd FileType mail redraw|:call ToggleSpell()
 " }
 
 " Bindings {
