@@ -20,12 +20,16 @@
                 Bundle 'matchit.zip'
                 Bundle 'Tabular'
                 Bundle 'camelcasemotion'
-                Bundle 'tpope/vim-markdown'
                 Bundle 'myusuf3/numbers.vim'
                 Bundle 'rainbow_parentheses.vim'
                 Bundle 'jimenezrick/vimerl'
                 Bundle 'tpope/vim-abolish'
                 Bundle 'tpope/vim-fugitive'
+                Bundle 'memeplex/groan'
+                Bundle 'nelstrom/vim-docopen'
+                Bundle 'gregsexton/gitv'
+                Bundle 'mattn/webapi-vim'
+                Bundle 'mattn/gist-vim'
                 "Bundle 'ultisnips'              " handle by pacman, vundle doesn't work for some reason
 
                 set hidden 
@@ -68,7 +72,7 @@
 " }
 
 " General {
-      set nobackup
+      "set nobackup
       set undodir=~/tmp/vim/undo//     " undo files
       set backupdir=~/tmp/vim/backup// " backups
       set directory=~/tmp/vim/swap//   " swap files
@@ -128,6 +132,7 @@
             autocmd FileType scheme setl keywordprg=kvim-scheme
             autocmd FileType mail set omnifunc=mailcomplete#Complete
             autocmd FileType mail set textwidth=70
+            autocmd BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
       endif
 
       " Set some sensible defaults for editing C-files
@@ -199,6 +204,10 @@
       set pastetoggle=<F3>
       set showmode
 
+      "search regexp
+      nnoremap <leader>/ :%s/\v/g<Left><Left>
+      vnoremap <leader>/ :s/\v/g<Left><Left>
+
       " Training {
             nnoremap <up> <nop>
             nnoremap <down> <nop>
@@ -209,4 +218,3 @@
             inoremap <Esc> <nop>
       " }
 " }
-
