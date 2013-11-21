@@ -25,6 +25,7 @@
                 Bundle 'jimenezrick/vimerl'
                 Bundle 'tpope/vim-abolish'
                 Bundle 'tpope/vim-fugitive'
+                Bundle 'tpope/vim-unimpaired'
                 Bundle 'memeplex/groan'
                 Bundle 'nelstrom/vim-docopen'
                 Bundle 'gregsexton/gitv'
@@ -122,6 +123,7 @@
             autocmd BufRead,BufNewFile SConscript set filetype=python
             autocmd FileType python set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType java set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
+            autocmd FileType java setl keywordprg=kvim-java
             autocmd FileType c set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType cpp set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType erlang set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
@@ -200,8 +202,6 @@
       nmap <C-S-P> :call <SID>SynStack()<CR>
       inoremap jj <Esc>
 
-      nnoremap <F3> :set invpaste paste?<CR>
-      set pastetoggle=<F3>
       set showmode
 
       "search regexp
