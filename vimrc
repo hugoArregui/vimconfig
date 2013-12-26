@@ -14,7 +14,6 @@
                 Bundle 'L9'
                 Bundle 'FuzzyFinder'
                 Bundle 'scrooloose/nerdcommenter'
-                Bundle 'scrooloose/nerdtree'
                 Bundle 'majutsushi/tagbar'
                 Bundle 'LargeFile'
                 Bundle 'matchit.zip'
@@ -26,12 +25,13 @@
                 Bundle 'tpope/vim-abolish'
                 Bundle 'tpope/vim-fugitive'
                 Bundle 'tpope/vim-unimpaired'
+                Bundle 'tpope/vim-vinegar'
                 Bundle 'memeplex/groan'
                 Bundle 'nelstrom/vim-docopen'
                 Bundle 'gregsexton/gitv'
                 Bundle 'mattn/webapi-vim'
                 Bundle 'mattn/gist-vim'
-                "Bundle 'ultisnips'              " handle by pacman, vundle doesn't work for some reason
+                "Bundle 'ultisnips'              " handled by pacman, vundle doesn't work for some reason
 
                 set hidden 
                 set runtimepath+="~/.vim/UltiSnips"
@@ -104,6 +104,8 @@
       set ruler                    " show ruler (line & column numbers)
       filetype indent plugin on    " Enable filetype-specific plugins
 
+      set laststatus=2
+      set statusline=%{fugitive#statusline()}\ >>\ %f\ %m\ (%l/%L)
       "au BufWinLeave * silent! mkview
       "au BufWinEnter * silent! loadview
 " }
@@ -169,6 +171,7 @@
   endfunction
 
   nmap <silent> <F7> :call ToggleSpell()<CR>
+  nmap <silent> <F8> vip :!sort<CR>
   autocmd FileType mail redraw|:call ToggleSpell()
 " }
 
