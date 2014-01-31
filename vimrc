@@ -19,7 +19,6 @@
                 Bundle 'matchit.zip'
                 Bundle 'Tabular'
                 Bundle 'camelcasemotion'
-                Bundle 'myusuf3/numbers.vim'
                 Bundle 'rainbow_parentheses.vim'
                 Bundle 'jimenezrick/vimerl'
                 Bundle 'tpope/vim-abolish'
@@ -35,7 +34,6 @@
 
                 set hidden 
                 set runtimepath+="~/.vim/UltiSnips"
-                let NERDTreeShowBookmarks=1
                 let tagbar_compact=1
                 let tagbar_sort=0                " Don't sort alphabetically tagbar's list, show it in the defined order
                 let g:fuf_modesDisable = []
@@ -102,6 +100,8 @@
       set showcmd                  " show partial command in status line
       set showmatch                " show matching brackets
       set ruler                    " show ruler (line & column numbers)
+      set relativenumber
+      set number
       filetype indent plugin on    " Enable filetype-specific plugins
 
       set laststatus=2
@@ -116,6 +116,7 @@
       setl lispwords+=call-with-output-file,define-for-syntax,define-foreign-record-type
       setl lispwords+=define-concurrent-native-callback,define-synchronous-concurrent-native-callback
       setl lispwords+=define-callback,test-group,define-target,define-page
+      setl lispwords+=let-local-refs
       set autoindent		
       set backspace=2 
       set ts=2
@@ -124,6 +125,8 @@
       if has("autocmd")
             autocmd BufRead,BufNewFile SConscript set filetype=python
             autocmd FileType python set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
+            autocmd FileType python let b:evalfile = "%run {FILE}"
+            autocmd FileType python let b:evalsel = "%paste"
             autocmd FileType java set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType java setl keywordprg=kvim-java
             autocmd FileType c set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
@@ -134,6 +137,7 @@
             autocmd FileType scheme RainbowParenthesesLoadRound
             autocmd FileType scheme setl iskeyword=33,35-36,38,42-58,60-90,94,95,97-122,126,_,+,-,*,/,<,=,>,:,$,?,!,@-@,#,^
             autocmd FileType scheme setl keywordprg=kvim-scheme
+            autocmd FileType scheme let b:evalfile = "(include \"{FILE\}\")"
             autocmd FileType mail set omnifunc=mailcomplete#Complete
             autocmd FileType mail set textwidth=70
             autocmd BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
@@ -177,7 +181,6 @@
 
 " Bindings {
       map <tab> %
-      map <F2> :NERDTreeToggle<CR>
       nnoremap <silent> <F4> :TagbarToggle<CR><C-W><C-W>
 
       nmap <silent> <leader>h :silent :nohlsearch<CR> 
