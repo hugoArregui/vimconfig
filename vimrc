@@ -125,8 +125,8 @@
       if has("autocmd")
             autocmd BufRead,BufNewFile SConscript set filetype=python
             autocmd FileType python set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
-            autocmd FileType python let b:evalfile = "%run {FILE}"
-            autocmd FileType python let b:evalsel = "%paste"
+            autocmd FileType python let b:filecmd = "%run {FILE}"
+            autocmd FileType python let b:clipcmd = "type --window {WIN} " . shellescape("%paste\n", 1)
             autocmd FileType java set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType java setl keywordprg=kvim-java
             autocmd FileType c set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
@@ -137,7 +137,7 @@
             autocmd FileType scheme RainbowParenthesesLoadRound
             autocmd FileType scheme setl iskeyword=33,35-36,38,42-58,60-90,94,95,97-122,126,_,+,-,*,/,<,=,>,:,$,?,!,@-@,#,^
             autocmd FileType scheme setl keywordprg=kvim-scheme
-            autocmd FileType scheme let b:evalfile = "(include \"{FILE\}\")"
+            autocmd FileType scheme let b:filecmd = "(include \"{FILE\}\")"
             autocmd FileType mail set omnifunc=mailcomplete#Complete
             autocmd FileType mail set textwidth=70
             autocmd BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
