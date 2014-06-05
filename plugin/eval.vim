@@ -1,3 +1,5 @@
+"Author: Carlos Pita
+
 " <Leader>xt: select target window
 map <silent> <Leader>xt :let b:targetwin = system("xdotool selectwindow")[:-2]<CR>
 " <Leader>xw: eval current word
@@ -5,7 +7,7 @@ map <silent> <Leader>xw yiw:call <SID>EvalSel()<CR>
 " <Leader>xx: eval current line
 map <silent> <Leader>xx yy:call <SID>EvalSel()<CR>
 " <Leader>xs: eval current visual selection
-map <silent> <Leader>xs y:call <SID>EvalSel()<CR>
+map <silent> <Leader>xs "+y:call <SID>EvalSel()<CR>
 " <Leader>xc: eval region between prev <eval> and next </eval> markers
 map <silent> <Leader>xc mS?<eval><CR>jy/^.*</eval><CR>`S:call <SID>EvalSel()<CR>
 " <Leader>xr: eval region between x and y marks

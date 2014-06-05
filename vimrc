@@ -13,7 +13,7 @@
                 Bundle 'gmarik/vundle'
                 Bundle 'L9'
                 Bundle 'FuzzyFinder'
-                Bundle 'scrooloose/nerdcommenter'
+                "Bundle 'scrooloose/nerdcommenter'
                 Bundle 'majutsushi/tagbar'
                 Bundle 'LargeFile'
                 Bundle 'matchit.zip'
@@ -30,6 +30,13 @@
                 Bundle 'gregsexton/gitv'
                 Bundle 'mattn/webapi-vim'
                 Bundle 'mattn/gist-vim'
+                Bundle 'tpope/vim-commentary'
+                Bundle 'michaeljsmith/vim-indent-object'
+                Bundle 'kana/vim-textobj-user'
+                Bundle 'kana/vim-textobj-function'
+                Bundle 'bps/vim-textobj-python'
+                Bundle 'jamessan/vim-gnupg'
+
                 "Bundle 'ultisnips'              " handled by pacman, vundle doesn't work for some reason
 
                 set hidden 
@@ -119,16 +126,13 @@
       setl lispwords+=let-local-refs
       set autoindent		
       set backspace=2 
-      set ts=2
-      set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
-
+      " set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
       if has("autocmd")
             autocmd BufRead,BufNewFile SConscript set filetype=python
             autocmd FileType python set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType python let b:filecmd = "%run {FILE}"
             autocmd FileType python let b:clipcmd = "type --window {WIN} " . shellescape("%paste\n", 1)
             autocmd FileType java set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
-            autocmd FileType java setl keywordprg=kvim-java
             autocmd FileType c set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType cpp set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType erlang set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
@@ -136,11 +140,12 @@
             autocmd VimEnter * RainbowParenthesesToggle
             autocmd FileType scheme RainbowParenthesesLoadRound
             autocmd FileType scheme setl iskeyword=33,35-36,38,42-58,60-90,94,95,97-122,126,_,+,-,*,/,<,=,>,:,$,?,!,@-@,#,^
-            autocmd FileType scheme setl keywordprg=kvim-scheme
             autocmd FileType scheme let b:filecmd = "(include \"{FILE\}\")"
-            autocmd FileType mail set omnifunc=mailcomplete#Complete
-            autocmd FileType mail set textwidth=70
+            autocmd FileType scheme set tabstop=8|set shiftwidth=8|set softtabstop=0|set noexpandtab
+            autocmd FileType mail setl textwidth=70
+            autocmd FileType mail setl fo+=aw
             autocmd BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
+            autocmd FileType * let &keywordprg = 'kvim ' . &filetype
       endif
 
       " Set some sensible defaults for editing C-files
