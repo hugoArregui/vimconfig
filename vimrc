@@ -6,38 +6,40 @@
 
       " Extensions {
                 filetype off
-                set rtp+=~/.vim/bundle/vundle/
-                call vundle#rc()
+                set rtp+=~/.vim/bundle/Vundle.vim
+                call vundle#begin()
+
+                Plugin 'gmarik/vundle'
+                Plugin 'L9'
+                Plugin 'FuzzyFinder'
+                Plugin 'majutsushi/tagbar'
+                Plugin 'LargeFile'
+                Plugin 'matchit.zip'
+                Plugin 'Tabular'
+                Plugin 'camelcasemotion'
+                Plugin 'rainbow_parentheses.vim'
+                Plugin 'tpope/vim-abolish'
+                Plugin 'tpope/vim-fugitive'
+                Plugin 'tpope/vim-unimpaired'
+                Plugin 'tpope/vim-vinegar'
+                Plugin 'tpope/vim-commentary'
+                Plugin 'tpope/vim-markdown'
+                Plugin 'nelstrom/vim-markdown-folding'
+                Plugin 'nelstrom/vim-docopen'
+                Plugin 'gregsexton/gitv'
+                Plugin 'mattn/webapi-vim'
+                Plugin 'mattn/gist-vim'
+                Plugin 'michaeljsmith/vim-indent-object'
+                Plugin 'kana/vim-textobj-user'
+                Plugin 'kana/vim-textobj-function'
+                Plugin 'bps/vim-textobj-python'
+                Plugin 'jamessan/vim-gnupg'
+                Plugin 'SirVer/ultisnips'
+                " Plugin 'jimenezrick/vimerl'       "for erlang support
+                " Plugin 'kchmck/vim-coffee-script' "for cofeescript support
+                call vundle#end()
+                filetype indent plugin on    " Enable filetype-specific plugins
                 syntax on
-
-                Bundle 'gmarik/vundle'
-                Bundle 'L9'
-                Bundle 'FuzzyFinder'
-                "Bundle 'scrooloose/nerdcommenter'
-                Bundle 'majutsushi/tagbar'
-                Bundle 'LargeFile'
-                Bundle 'matchit.zip'
-                Bundle 'Tabular'
-                Bundle 'camelcasemotion'
-                Bundle 'rainbow_parentheses.vim'
-                Bundle 'jimenezrick/vimerl'
-                Bundle 'tpope/vim-abolish'
-                Bundle 'tpope/vim-fugitive'
-                Bundle 'tpope/vim-unimpaired'
-                Bundle 'tpope/vim-vinegar'
-                Bundle 'memeplex/groan'
-                Bundle 'nelstrom/vim-docopen'
-                Bundle 'gregsexton/gitv'
-                Bundle 'mattn/webapi-vim'
-                Bundle 'mattn/gist-vim'
-                Bundle 'tpope/vim-commentary'
-                Bundle 'michaeljsmith/vim-indent-object'
-                Bundle 'kana/vim-textobj-user'
-                Bundle 'kana/vim-textobj-function'
-                Bundle 'bps/vim-textobj-python'
-                Bundle 'jamessan/vim-gnupg'
-
-                "Bundle 'ultisnips'              " handled by pacman, vundle doesn't work for some reason
 
                 set hidden 
                 set runtimepath+="~/.vim/UltiSnips"
@@ -109,7 +111,6 @@
       set ruler                    " show ruler (line & column numbers)
       set relativenumber
       set number
-      filetype indent plugin on    " Enable filetype-specific plugins
 
       set laststatus=2
       set statusline=%{fugitive#statusline()}\ >>\ %f\ %m\ (%l/%L)
@@ -126,7 +127,6 @@
       setl lispwords+=let-local-refs
       set autoindent		
       set backspace=2 
-      " set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
       if has("autocmd")
             autocmd BufRead,BufNewFile SConscript set filetype=python
             autocmd FileType python set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
@@ -142,10 +142,13 @@
             autocmd FileType scheme setl iskeyword=33,35-36,38,42-58,60-90,94,95,97-122,126,_,+,-,*,/,<,=,>,:,$,?,!,@-@,#,^
             autocmd FileType scheme let b:filecmd = "(include \"{FILE\}\")"
             autocmd FileType scheme set tabstop=8|set shiftwidth=8|set softtabstop=0|set noexpandtab
+            autocmd FileType clojure set tabstop=2|set shiftwidth=2|set softtabstop=0|set noexpandtab
+            autocmd FileType coffee set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
             autocmd FileType mail setl textwidth=70
             autocmd FileType mail setl fo+=aw
             autocmd BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
             autocmd FileType * let &keywordprg = 'kvim ' . &filetype
+            autocmd BufRead,BufNewFile *.md set filetype=markdown
       endif
 
       " Set some sensible defaults for editing C-files
