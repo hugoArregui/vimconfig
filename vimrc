@@ -24,6 +24,8 @@
                 Plugin 'tpope/vim-vinegar'
                 Plugin 'tpope/vim-commentary'
                 Plugin 'tpope/vim-markdown'
+                Plugin 'tpope/vim-surround'
+                Plugin 'tpope/vim-repeat'
                 Plugin 'nelstrom/vim-markdown-folding'
                 Plugin 'nelstrom/vim-docopen'
                 Plugin 'gregsexton/gitv'
@@ -141,7 +143,7 @@
             autocmd FileType scheme RainbowParenthesesLoadRound
             autocmd FileType scheme setl iskeyword=33,35-36,38,42-58,60-90,94,95,97-122,126,_,+,-,*,/,<,=,>,:,$,?,!,@-@,#,^
             autocmd FileType scheme let b:filecmd = "(include \"{FILE\}\")"
-            autocmd FileType scheme set tabstop=8|set shiftwidth=8|set softtabstop=0|set noexpandtab
+            autocmd FileType scheme set tabstop=2|set shiftwidth=2|set softtabstop=0|set noexpandtab
             autocmd FileType clojure set tabstop=2|set shiftwidth=2|set softtabstop=0|set noexpandtab
             autocmd FileType coffee set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
             autocmd FileType mail setl textwidth=70
