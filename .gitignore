@@ -2,6 +2,7 @@
 *.un~
 bundle/*
 !bundle/vundle/**
+!bundle/Vundle.vim
 git rm .netrwhist
 view/
 .netrwhist
