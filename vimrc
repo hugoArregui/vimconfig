@@ -37,8 +37,11 @@
                 Plugin 'bps/vim-textobj-python'
                 Plugin 'jamessan/vim-gnupg'
                 Plugin 'SirVer/ultisnips'
-                " Plugin 'jimenezrick/vimerl'       "for erlang support
-                " Plugin 'kchmck/vim-coffee-script' "for cofeescript support
+                Plugin 'vim-pandoc/vim-pandoc-syntax'
+                Plugin 'vim-pandoc/vim-pandoc'
+                Plugin 'vim-scripts/DetectIndent'
+                Plugin 'gnu-c'
+
                 call vundle#end()
                 filetype indent plugin on    " Enable filetype-specific plugins
                 syntax on
@@ -53,7 +56,6 @@
                 let g:fuf_file_exclude = '\v\.pyc$|\.class$|\.beam$|\.o$'
                 let g:fuf_coveragefile_exclude = g:fuf_file_exclude
                 let g:UltiSnipsExpandTrigger="<tab>"
-                let erlang_show_errors = 0
       " }
 " }
 
@@ -121,36 +123,31 @@
 " }
 
 " Formatting {
-      setl lispwords+=let-values,condition-case,with-input-from-string
-      setl lispwords+=with-output-to-string,handle-exceptions,call/cc,rec,receive
-      setl lispwords+=call-with-output-file,define-for-syntax,define-foreign-record-type
-      setl lispwords+=define-concurrent-native-callback,define-synchronous-concurrent-native-callback
-      setl lispwords+=define-callback,test-group,define-target,define-page
-      setl lispwords+=let-local-refs
+      set lispwords+=let-values,condition-case,with-input-from-string
+      set lispwords+=with-output-to-string,handle-exceptions,call/cc,rec,receive
+      set lispwords+=call-with-output-file,define-for-syntax,define-foreign-record-type
+      set lispwords+=define-concurrent-native-callback,define-synchronous-concurrent-native-callback
+      set lispwords+=define-callback,test-group,define-target,define-page
+      set lispwords+=let-local-refs,define-class
       set autoindent		
       set backspace=2 
       if has("autocmd")
-            autocmd BufRead,BufNewFile SConscript set filetype=python
-            autocmd FileType python set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
-            autocmd FileType python let b:filecmd = "%run {FILE}"
-            autocmd FileType python let b:clipcmd = "type --window {WIN} " . shellescape("%paste\n", 1)
+            autocmd FileType apache set commentstring=#\ %s
             autocmd FileType java set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType c set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType cpp set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
-            autocmd FileType erlang set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType make set noexpandtab
             autocmd VimEnter * RainbowParenthesesToggle
             autocmd FileType scheme RainbowParenthesesLoadRound
             autocmd FileType scheme setl iskeyword=33,35-36,38,42-58,60-90,94,95,97-122,126,_,+,-,*,/,<,=,>,:,$,?,!,@-@,#,^
-            autocmd FileType scheme let b:filecmd = "(include \"{FILE\}\")"
-            autocmd FileType scheme set tabstop=2|set shiftwidth=2|set softtabstop=0|set noexpandtab
-            autocmd FileType clojure set tabstop=2|set shiftwidth=2|set softtabstop=0|set noexpandtab
+            autocmd FileType clojure set tabstop=2|set shiftwidth=2|set softtabstop=0|set expandtab
             autocmd FileType coffee set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
             autocmd FileType mail setl textwidth=70
             autocmd FileType mail setl fo+=aw
             autocmd BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
             autocmd FileType * let &keywordprg = 'kvim ' . &filetype
             autocmd BufRead,BufNewFile *.md set filetype=markdown
+            autocmd FileType scheme :DetectIndent
       endif
 
       " Set some sensible defaults for editing C-files
@@ -167,7 +164,7 @@
       augroup END
 
       "better linewraps
-      set showbreak=↪
+      " set showbreak=↪
 " }
 
 " Spell Check {
@@ -233,4 +230,9 @@
             nnoremap <PageDown> <nop>
             inoremap <Esc> <nop>
       " }
+" }
+
+" allow override vimrc {
+		set exrc " from http://www.ilker.de/specific-vim-settings-per-project.html
+		set secure
 " }
