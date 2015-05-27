@@ -41,10 +41,15 @@
                 Plugin 'vim-pandoc/vim-pandoc'
                 Plugin 'vim-scripts/DetectIndent'
                 Plugin 'gnu-c'
+                Plugin 'hynek/vim-python-pep8-indent'
+                Plugin 'vitalk/vim-shebang'
+
 
                 call vundle#end()
                 filetype indent plugin on    " Enable filetype-specific plugins
                 syntax on
+
+                let g:gist_post_private = 1
 
                 set hidden 
                 set runtimepath+="~/.vim/UltiSnips"
@@ -131,11 +136,16 @@
       set lispwords+=let-local-refs,define-class
       set autoindent		
       set backspace=2 
+      set expandtab
+      set tabstop=2       " spaces that a <Tab> in the file counts for.
+      set softtabstop=2   " spaces that a <Tab> counts for while editing.
+      set shiftwidth=2    " spaces to use for each step of (auto)indent.
       if has("autocmd")
             autocmd FileType apache set commentstring=#\ %s
             autocmd FileType java set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType c set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
             autocmd FileType cpp set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
+            autocmd FileType javascript set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
             autocmd FileType make set noexpandtab
             autocmd VimEnter * RainbowParenthesesToggle
             autocmd FileType scheme RainbowParenthesesLoadRound
@@ -221,6 +231,8 @@
       nnoremap <leader>/ :%s/\v/g<Left><Left>
       vnoremap <leader>/ :s/\v/g<Left><Left>
 
+      :com StripWhitespace  %s/\s\+$//e
+
       " Training {
             nnoremap <up> <nop>
             nnoremap <down> <nop>
@@ -230,6 +242,7 @@
             nnoremap <PageDown> <nop>
             inoremap <Esc> <nop>
       " }
+
 " }
 
 " allow override vimrc {
