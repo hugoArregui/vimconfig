@@ -204,10 +204,6 @@
       nmap <silent> <leader>h :silent :nohlsearch<CR> 
       nmap <silent> <leader>s :set nolist!<CR>
 
-      nmap <leader>F :FufFile<CR>
-      nmap <leader>f :FufCoverageFile<CR>
-      nmap <leader>v :FufBuffer<CR>
-
       noremap H ^
       noremap L $
       vnoremap L g_
