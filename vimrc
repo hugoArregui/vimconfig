@@ -90,9 +90,9 @@
 
 " General {
       "set nobackup
-      set undodir=~/tmp/vim/undo//     " undo files
-      set backupdir=~/tmp/vim/backup// " backups
-      set directory=~/tmp/vim/swap//   " swap files
+      set undodir=~/tmp/vim/undo/     " undo files
+      set backupdir=~/tmp/vim/backup/ " backups
+      set directory=~/tmp/vim/swap/   " swap files
 
       set wildmenu
       set wildmode=list:longest,full  

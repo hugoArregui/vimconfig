@@ -76,6 +76,8 @@ syn keyword schemeSyntax lambda and or if cond case define let let* letrec
 syn keyword schemeSyntax begin do delay set! else =>
 syn keyword schemeSyntax quote quasiquote unquote unquote-splicing
 syn keyword schemeSyntax define-syntax let-syntax letrec-syntax syntax-rules
+syn keyword schemeSyntax import include use
+
 " R6RS
 syn keyword schemeSyntax define-record-type fields protocol
 
