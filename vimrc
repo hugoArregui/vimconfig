@@ -142,23 +142,22 @@
       set softtabstop=2   " spaces that a <Tab> counts for while editing.
       set shiftwidth=2    " spaces to use for each step of (auto)indent.
       if has("autocmd")
-            autocmd FileType apache set commentstring=#\ %s
-            autocmd FileType java set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
-            autocmd FileType c set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
-            autocmd FileType cpp set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
-            autocmd FileType javascript set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
-            autocmd FileType make set noexpandtab
-            autocmd VimEnter * RainbowParenthesesToggle
+            autocmd FileType apache setl commentstring=#\ %s
+            autocmd FileType java setl tabstop=4|setl shiftwidth=4|setl softtabstop=4|setl expandtab
+            autocmd FileType c setl tabstop=4|setl shiftwidth=4|setl softtabstop=4|setl expandtab
+            autocmd FileType cpp setl tabstop=4|setl shiftwidth=4|setl softtabstop=4|setl expandtab
+            autocmd FileType javascript setl tabstop=2|setl shiftwidth=2|setl softtabstop=2|setl expandtab
+            autocmd FileType make setl noexpandtab
             autocmd FileType scheme RainbowParenthesesLoadRound
-            autocmd FileType scheme setl iskeyword=33,35-36,38,42-58,60-90,94,95,97-122,126,_,+,-,*,/,<,=,>,:,$,?,!,@-@,#,^
-            autocmd FileType clojure set tabstop=2|set shiftwidth=2|set softtabstop=0|set expandtab
-            autocmd FileType coffee set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
-            autocmd FileType mail setl textwidth=70
-            autocmd FileType mail setl fo+=aw
-            autocmd BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
-            autocmd FileType * let &keywordprg = 'kvim ' . &filetype
-            autocmd BufRead,BufNewFile *.md set filetype=markdown
+            autocmd FileType scheme setl iskeyword=33,35-36,38,42-58,60-90,94,95,97-122,126,_,+,-,*,/,<,=,>,:,$,?,!,@-@,#
             autocmd FileType scheme :DetectIndent
+            autocmd FileType clojure setl tabstop=2|setl shiftwidth=2|setl softtabstop=0|setl expandtab
+            autocmd FileType mail setl textwidth=70|setl fo+=aw
+            autocmd BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
+            autocmd BufRead,BufNewFile *.md setl filetype=markdown
+            autocmd BufRead,BufNewFile *.tsv setl noexpandtab|setl shiftwidth=20|setl softtabstop=20|setl tabstop=20|setl nowrap
+            autocmd FileType * RainbowParenthesesToggle
+            autocmd FileType * let &keywordprg = 'kvim ' . &filetype
       endif
 
       " Set some sensible defaults for editing C-files
@@ -170,8 +169,8 @@
         "   For *.c and *.h files set formatting of comments and set C-indenting on.
         "   For other files switch it off.
         "   Don't change the order, it's important that the line with * comes first.
-        autocmd BufRead *       set formatoptions=tcql nocindent comments&
-        autocmd BufRead *.c,*.h set formatoptions=croql cindent comments=sr:/*,mb:*,el:*/,://
+        autocmd BufRead *       setl formatoptions=tcql nocindent comments&
+        autocmd BufRead *.c,*.h setl formatoptions=croql cindent comments=sr:/*,mb:*,el:*/,://
       augroup END
 
       "better linewraps
