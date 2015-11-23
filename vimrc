@@ -11,7 +11,6 @@
 
                 Plugin 'gmarik/vundle'
                 Plugin 'L9'
-                Plugin 'FuzzyFinder'
                 Plugin 'majutsushi/tagbar'
                 Plugin 'LargeFile'
                 Plugin 'matchit.zip'
@@ -43,6 +42,7 @@
                 Plugin 'gnu-c'
                 Plugin 'hynek/vim-python-pep8-indent'
                 Plugin 'vitalk/vim-shebang'
+                Plugin 'ctrlpvim/ctrlp.vim'
 
 
                 call vundle#end()
@@ -55,12 +55,12 @@
                 set runtimepath+="~/.vim/UltiSnips"
                 let tagbar_compact=1
                 let tagbar_sort=0                " Don't sort alphabetically tagbar's list, show it in the defined order
-                let g:fuf_modesDisable = []
-                let g:fuf_mrufile_maxItem = 400
-                let g:fuf_mrucmd_maxItem = 400
-                let g:fuf_file_exclude = '\v\.pyc$|\.class$|\.beam$|\.o$'
-                let g:fuf_coveragefile_exclude = g:fuf_file_exclude
                 let g:UltiSnipsExpandTrigger="<tab>"
+                let g:ctrlp_custom_ignore = {
+                      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+                      \ 'file': '\v\.(pyc|so|class|o)$',
+                      \ 'link': 'some_bad_symbolic_links',
+                      \ }
       " }
 " }
 
