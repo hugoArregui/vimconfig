@@ -230,10 +230,6 @@
       :com StripWhitespace  %s/\s\+$//e
 
       " Training {
-            nnoremap <up> <nop>
-            nnoremap <down> <nop>
-            nnoremap <left> <nop>
-            nnoremap <right> <nop>
             nnoremap <PageUp> <nop>
             nnoremap <PageDown> <nop>
             inoremap <Esc> <nop>
