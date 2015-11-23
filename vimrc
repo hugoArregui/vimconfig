@@ -42,6 +42,7 @@
                 Plugin 'gnu-c'
                 Plugin 'hynek/vim-python-pep8-indent'
                 Plugin 'vitalk/vim-shebang'
+                Plugin 'pangloss/vim-javascript'
                 Plugin 'ctrlpvim/ctrlp.vim'
 
 
