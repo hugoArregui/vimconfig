@@ -9,7 +9,7 @@
                 set rtp+=~/.vim/bundle/Vundle.vim
                 call vundle#begin()
 
-                Plugin 'gmarik/vundle'
+                Plugin 'gmarik/Vundle.vim'
                 Plugin 'L9'
                 Plugin 'majutsushi/tagbar'
                 Plugin 'LargeFile'
