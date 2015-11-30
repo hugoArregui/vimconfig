@@ -203,6 +203,9 @@
       nmap <silent> <leader>h :silent :nohlsearch<CR> 
       nmap <silent> <leader>s :set nolist!<CR>
 
+      nmap <leader>f :CtrlP 
+      nmap <leader>v :CtrlPBuffer<CR>
+
       noremap H ^
       noremap L $
       vnoremap L g_
