@@ -44,6 +44,7 @@
                 Plugin 'vitalk/vim-shebang'
                 Plugin 'pangloss/vim-javascript'
                 Plugin 'ctrlpvim/ctrlp.vim'
+                Plugin 'nelstrom/vim-textobj-rubyblock'
 
 
                 call vundle#end()
